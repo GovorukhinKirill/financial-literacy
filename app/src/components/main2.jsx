@@ -64,3 +64,38 @@
 //     </section>
 //   );
 // }
+
+
+// return(
+//     <section>
+//         <header>
+
+//        </header>
+//      <div>
+//          <div>
+//             <span>Доход</span>
+//             <input type="number" placeholder="Введите доход" onChange={incomeChange}/>
+//             <button onClick={incomeChangeSubmit}>+</button>
+//          </div>
+//          <div>
+    
+//          <button onClick={resetButton}>Cброс</button> 
+
+//          </div>
+//         <div> 
+//             <span>Расход</span>
+//             <input type="number" placeholder="Введите расход" onChange={expenseChange}/>
+//             <button onClick={expenseChangeSubmit}>-</button>
+//         </div>
+//         <button onClick={clearSpent}>Потрачено</button>
+
+//      </div>
+//     <footer>
+//         <div>
+//             <span> Осталось: {balance} </span>
+//             <span> Потрачено:{spent} </span>
+//         </div>
+//     </footer>
+//     </section>
+// )
+// 

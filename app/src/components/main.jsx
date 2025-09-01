@@ -1,5 +1,5 @@
 
-
+import "../index.css"
 import React,{useState} from "react";
 export default function Main(){
     
@@ -22,7 +22,10 @@ export default function Main(){
         localStorage.setItem("balance",0)
     }
 
-
+    const clearSpent =(e) =>{
+        setSpent(0)
+        localStorage.setItem("spent",0)
+    }
     const incomeChangeSubmit =(e) =>{
         console.log(balance)
         let value = income+balance
@@ -45,36 +48,47 @@ export default function Main(){
         localStorage.setItem("balance",value)
        localStorage.setItem("spent", expense+spent)
     }
-    
     return(
-    <section>
-        <header>
+    <section className="app-container">
+  <header className="app-header">
+    <h1>Финансовый трекер</h1>
+  </header>
 
-       </header>
-     <div>
-         <div>
-            <span>Доход</span>
-            <input type="number" placeholder="Введите доход" onChange={incomeChange}/>
-            <button onClick={incomeChangeSubmit}>+</button>
-         </div>
-         <div>
-         <span>Сброс</span>
-         <button onClick={resetButton}></button> 
+  <main className="app-main">
+    <div className="income-section">
+      <label className="input-label">
+        Доход
+        <input type="number" placeholder="Введите доход" onChange={incomeChange} className="input-field"/>
+      </label>
+      <button onClick={incomeChangeSubmit} className="btn btn-add">+</button>
+    </div>
 
-         </div>
-        <div> 
-            <span>Расход</span>
-            <input type="number" placeholder="Введите расход" onChange={expenseChange}/>
-            <button onClick={expenseChangeSubmit}>-</button>
-        </div>
+    
 
-     </div>
-    <footer>
-        <div>
-            <span> Осталось: {balance} </span>
-            <span> Потрачено:{spent} </span>
-        </div>
-    </footer>
-    </section>
-)
-} 
+    <div className="expense-section">
+      <label className="input-label">
+        Расход
+        <input type="number" placeholder="Введите расход" onChange={expenseChange} className="input-field"/>
+      </label>
+      <button onClick={expenseChangeSubmit} className="btn btn-subtract">-</button>
+    </div>
+
+   
+  </main>
+
+  <footer className="app-footer">
+    <div className="balance-info">
+      <span>Осталось: <strong>{balance}</strong></span>
+      <span>Потрачено: <strong>{spent}</strong></span>
+    </div>
+  </footer>
+<div className="reset-section">
+      <button onClick={resetButton} className="btn btn-reset">Сброс</button>
+    </div>
+   <div className="spent-section">
+      <button onClick={clearSpent} className="btn btn-clear-spent">Потрачено</button>
+    </div>
+</section>
+
+    )
+}
